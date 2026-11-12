@@ -1,0 +1,31 @@
+@baseUrl = http://127.0.0.1:8080/api/v1
+
+### Monthly settings
+PUT {{baseUrl}}/monthly-settings/2026-11
+Content-Type: application/json
+
+{"sedentaryCalories":1900,"targetCalories":1700}
+
+### Create a log
+POST {{baseUrl}}/daily-logs/2026-11-12
+Content-Type: application/json
+
+{"entryType":"ACTUAL","weightKg":72,"activeCalories":500,"intakeCalories":2000,"notes":"Evening walk"}
+
+### Read a log
+GET {{baseUrl}}/daily-logs/2026-11-12
+
+### Replace a log
+PUT {{baseUrl}}/daily-logs/2026-11-12
+Content-Type: application/json
+
+{"entryType":"ACTUAL","weightKg":71.9,"activeCalories":600,"intakeCalories":2000,"notes":"Updated activity"}
+
+### List logs
+GET {{baseUrl}}/daily-logs?from=2026-11-01&to=2026-11-30
+
+### Weekly summaries
+GET {{baseUrl}}/summaries/weekly?from=2026-11-01&to=2026-11-30
+
+### Delete a log
+DELETE {{baseUrl}}/daily-logs/2026-11-12
